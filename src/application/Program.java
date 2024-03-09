@@ -3,6 +3,7 @@ package application;
 import model.entities.Reservation;
 import model.exceptions.DomainException;
 
+import javax.management.RuntimeErrorException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -39,6 +40,8 @@ public class Program {
             System.out.println("Invalid date format");
         } catch (DomainException e){
             System.out.println("Error in reservation: " + e.getMessage());
+        } catch (RuntimeErrorException){
+            System.out.println("Unexpected error");
         }
 
 
